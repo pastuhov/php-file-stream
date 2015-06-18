@@ -1,9 +1,10 @@
 {
   "name": "pastuhov/php-file-stream",
-  "description": ":package_description",
+  "description": "Big file creation helper. May be used for sitemap.xml or YML files creation.",
   "keywords": [
-    "league",
-    ":package_name"
+    "sitemap",
+    "export.yml",
+    "stream"
   ],
   "homepage": "https://github.com/pastuhov/php-file-stream",
   "license": "MIT",
