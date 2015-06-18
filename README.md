@@ -19,6 +19,7 @@ $ composer require pastuhov/php-file-stream
 
 * transparent file splitting (multiple sitemaps)
 * fast and safe file replacement from tmp to public directory
+* dependencies: 0
 
 ## Usage
 
