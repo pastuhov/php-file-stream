@@ -1,9 +1,9 @@
 # php-file-stream
 
 [![Build Status](https://travis-ci.org/zhelyabuzhsky/yii2-sitemap.svg)](https://travis-ci.org/pastuhov/php-file-stream)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zhelyabuzhsky/yii2-sitemap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/zhelyabuzhsky/yii2-sitemap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/?branch=master)
-[![Total Downloads](https://poser.pugx.org/zhelyabuzhsky/yii2-sitemap/downloads)](https://packagist.org/packages/pastuhov/php-file-stream)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/pastuhov/php-file-stream/?branch=master)
+[![Total Downloads](https://poser.pugx.org/pastuhov/php-file-stream/downloads)](https://packagist.org/packages/pastuhov/php-file-stream)
 
 A PHP class to generate sitemap files for large web-sites or YML (Yandex Market Language) files
 
