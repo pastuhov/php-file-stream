@@ -30,7 +30,7 @@ class FileStream
     /**
      * Destination directory path.
      *
-     * Example: /path/to/public
+     * Example: /var/www
      *
      * @var string
      */
