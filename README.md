@@ -17,7 +17,7 @@ $ composer require pastuhov/php-file-stream
 
 ## Features
 
-* multiple sitemaps (large sites)
+* transparent file splitting (multiple sitemaps)
 * fast and safe file replacement from tmp to public directory
 
 ## Usage
