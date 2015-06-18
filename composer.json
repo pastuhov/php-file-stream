@@ -4,10 +4,11 @@
   "keywords": [
     "sitemap",
     "export.yml",
+    "YML",
     "stream"
   ],
   "homepage": "https://github.com/pastuhov/php-file-stream",
-  "license": "MIT",
+  "license": "GPL-2.0",
   "authors": [
     {
       "name": "Kirill Pastukhov",
