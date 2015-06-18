@@ -65,6 +65,10 @@ $ composer require pastuhov/php-file-stream
 ``` bash
 $ composer test
 ```
+or
+```bash
+$ phpunit
+```
 
 ## Security
 
@@ -78,4 +82,3 @@ If you discover any security related issues, please email kirill@pastukhov.su in
 ## License
 
 GNU General Public License, version 2. Please see [License File](LICENSE) for more information.
-
