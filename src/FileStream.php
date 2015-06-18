@@ -56,7 +56,7 @@ class FileStream
 
     /**
      * Max possible writes to one file.
-     * @var string
+     * @var int
      */
     protected $maxCount;
 
@@ -84,7 +84,7 @@ class FileStream
      * @param string $dstDir Destination directory path
      * @param string|null $header File header
      * @param string|null $footer File footer
-     * @param bool|false $maxCount Max possible writes to one file
+     * @param int|bool|false $maxCount Max possible writes to one file
      * @throws \Exception
      */
     public function __construct($fileName, $tmpDir, $dstDir, $header = null, $footer = null, $maxCount = false)
