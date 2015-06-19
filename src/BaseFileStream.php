@@ -89,20 +89,29 @@ class BaseFileStream
     public function getHandle()
     {
         if ($this->_handle === false) {
-            $fileName = $this->getFileName();
-
-            $this->_handle = fopen($fileName, 'w');
-
-            if (!$this->_handle) {
-                throw new \Exception('Cannot open file ' . $fileName);
-            }
-
-            if ($this->header !== null) {
-                $this->write($this->header, false);
-            }
+            $this->openHandle();
         }
 
         return $this->_handle;
+    }
+
+    /**
+     * Open new file handle.
+     * @throws \Exception
+     */
+    protected function openHandle()
+    {
+        $fileName = $this->getFileName();
+
+        $this->_handle = fopen($fileName, 'w');
+
+        if (!$this->_handle) {
+            throw new \Exception('Cannot open file ' . $fileName);
+        }
+
+        if ($this->header !== null) {
+            $this->write($this->header, false);
+        }
     }
 
     /**
