@@ -2,6 +2,7 @@
 namespace pastuhov\FileStream\Test;
 
 use pastuhov\FileStream\FileStream;
+use pastuhov\FileStream\RenameCommand;
 
 class FileStreamTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,6 +50,8 @@ class FileStreamTest extends \PHPUnit_Framework_TestCase
             3
         );
 
+        $stream->addCommand(new RenameCommand($this->runtimeDir, '_renamed'));
+
         foreach ($urls = range(0, 7) as $url) {
             $stream->write(
                 '<url><loc>https://github.com?page' . $url . '</loc></url>' . PHP_EOL
@@ -57,15 +60,15 @@ class FileStreamTest extends \PHPUnit_Framework_TestCase
 
         $stream = null;
 
-        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap0.xml', $this->runtimeDir . '/' . 'sitemap0.xml');
-        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap1.xml', $this->runtimeDir . '/' . 'sitemap1.xml');
-        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap2.xml', $this->runtimeDir . '/' . 'sitemap2.xml');
+        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap0.xml', $this->runtimeDir . '/' . 'sitemap0.xml_renamed');
+        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap1.xml', $this->runtimeDir . '/' . 'sitemap1.xml_renamed');
+        $this->assertFileEquals(__DIR__ . '/fixtures/sitemap2.xml', $this->runtimeDir . '/' . 'sitemap2.xml_renamed');
     }
 
     /**
      * Test constructor placeholder validation.
      */
-    public function _testPlaceholderValidation()
+    public function testPlaceholderValidation()
     {
         $this->setExpectedException('Exception', 'File name {count} placeholder is needed');
 

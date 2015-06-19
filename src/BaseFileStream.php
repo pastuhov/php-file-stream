@@ -81,6 +81,24 @@ class BaseFileStream
         $handle = $this->getHandle();
         fclose($handle);
         $this->_handle = false;
+
+        $this->runCommand($this->getFileName());
+    }
+
+    /**
+     * @var \CommandInterface[]
+     */
+    protected $commands = [];
+    protected function runCommand($filename)
+    {
+        foreach ($this->commands as $command) {
+            $command->runCommand($filename);
+        }
+    }
+
+    public function addCommand(CommandInterface $command)
+    {
+        $this->commands[] = $command;
     }
 
     /**
