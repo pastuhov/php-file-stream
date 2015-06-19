@@ -3,4 +3,5 @@
 /composer.lock
 /coverage.clover
 /build
+!/tests/tmp/.gitkeep
 /tests/tmp*
