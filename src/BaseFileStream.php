@@ -19,48 +19,6 @@ class BaseFileStream
     protected $fileName;
 
     /**
-     * File header.
-     *
-     * Any file will be started from that string.
-     *
-     * @var string
-     */
-    protected $header;
-
-    /**
-     * File footer.
-     *
-     * Any file will be ended at that string.
-     *
-     * @var string
-     */
-    protected $footer;
-
-    /**
-     * Max possible writes to one file.
-     * @var int
-     */
-    protected $maxCount;
-
-    /**
-     * File name count placeholder.
-     * @var string
-     */
-    protected $countPlaceHolder = '{count}';
-
-    /**
-     * Current writes count.
-     * @var int
-     */
-    protected $currentCount = 0;
-
-    /**
-     * Current files count.
-     * @var int
-     */
-    protected $currentFileCount = 0;
-
-    /**
      * @param string $fileName file name
      */
     public function __construct($fileName)
