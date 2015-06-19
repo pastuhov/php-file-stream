@@ -62,21 +62,10 @@ class BaseFileStream
 
     /**
      * @param string $fileName file name
-     * @param string|null $header File header
-     * @param string|null $footer File footer
-     * @param int|bool|false $maxCount Max possible writes to one file
-     * @throws \Exception
      */
-    public function __construct($fileName, $header = null, $footer = null, $maxCount = false)
+    public function __construct($fileName)
     {
         $this->fileName = $fileName;
-        $this->header = $header;
-        $this->footer = $footer;
-        $this->maxCount = $maxCount;
-
-        if ($this->maxCount !== false && strpos($this->fileName, $this->countPlaceHolder) === false) {
-            throw new \Exception('File name ' . $this->countPlaceHolder . ' placeholder is needed');
-        }
     }
 
     private $_handle = false;
@@ -108,19 +97,14 @@ class BaseFileStream
         if (!$this->_handle) {
             throw new \Exception('Cannot open file ' . $fileName);
         }
-
-        if ($this->header !== null) {
-            $this->write($this->header, false);
-        }
     }
 
     /**
      * Binary-safe file handle write.
      * @param string $string contents
-     * @param bool $count
      * @throws \Exception
      */
-    public function write($string, $count = true)
+    public function write($string)
     {
         $fileName = $this->getFileName();
         $handle = $this->getHandle();
@@ -128,31 +112,17 @@ class BaseFileStream
         if (fwrite($handle, $string) === false) {
             throw new \Exception('Cannot write to file ' . $fileName);
         }
-
-        if ($count) {
-            $this->currentCount++;
-            if ($this->currentCount === $this->maxCount) {
-                $this->closeHandle();
-            }
-        }
     }
 
     /**
      * Close file handle.
      * @throws \Exception
      */
-    public function closeHandle()
+    protected function closeHandle()
     {
-        if ($this->footer !== null) {
-            $this->write($this->footer, false);
-        }
-
         $handle = $this->getHandle();
         fclose($handle);
         $this->_handle = false;
-
-        $this->currentFileCount++;
-        $this->currentCount = 0;
     }
 
     /**
@@ -162,10 +132,6 @@ class BaseFileStream
     protected function getFileName()
     {
         $fileName = $this->fileName;
-
-        if ($this->maxCount !== false) {
-            $fileName = strtr($fileName, [$this->countPlaceHolder => $this->currentFileCount]);
-        }
 
         return $fileName;
     }
