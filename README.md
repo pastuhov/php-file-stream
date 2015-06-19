@@ -28,9 +28,7 @@ $ composer require pastuhov/php-file-stream
 ```php
 
     $stream = new FileStream(
-        'export.yml',
-        '/var/tmp',
-        '/var/www'
+        '/tmp/export.yml'
     );
 
     $stream->write('<yml_catalog date="2010-04-01 17:00">');
@@ -45,9 +43,7 @@ $ composer require pastuhov/php-file-stream
 ```php
 
     $stream = new FileStream(
-        'sitemap{count}.xml',
-        '/var/tmp',
-        '/var/www'
+        '/tmp/sitemap{count}.xml',
         '<urlset>',
         '</urlset>',
         10000
