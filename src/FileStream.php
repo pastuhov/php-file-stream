@@ -118,7 +118,7 @@ class FileStream extends BaseFileStream
         $fileName = parent::getFileName();
 
         if ($this->maxCount !== false) {
-            $fileName = strtr($fileName, array($this->countPlaceHolder => $this->currentFileCount));
+            $fileName = strtr($fileName, [$this->countPlaceHolder => $this->currentFileCount]);
         }
 
         return $fileName;
