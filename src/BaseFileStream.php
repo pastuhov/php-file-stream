@@ -88,7 +88,7 @@ class BaseFileStream
     /**
      * @var \CommandInterface[]
      */
-    protected $commands = [];
+    protected $commands = array();
     protected function runCommand($filename)
     {
         foreach ($this->commands as $command) {
