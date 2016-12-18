@@ -82,13 +82,10 @@ class FileStream extends BaseFileStream
 
     /**
      * Returns the List of written Files
-     * To get the correct count, all Files have to be closed
-     * so closeHandle is called
      * @return array
      */
     public function getFileList()
     {
-        $this->closeHandle();
         return $this->files;
     }
 
