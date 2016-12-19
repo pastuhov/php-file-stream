@@ -75,7 +75,7 @@ class FileStream extends BaseFileStream
      * Adds the given Filename to the internal Array
      * @param $filename
      */
-    public function addFile($filename)
+    protected function addFile($filename)
     {
         $this->files[] = $filename;
     }
