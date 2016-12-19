@@ -46,6 +46,12 @@ class FileStream extends BaseFileStream
     protected $currentFileCount = 0;
 
     /**
+     * List of Files
+     * @var array
+     */
+    protected $files = [];
+
+    /**
      * @inheritdoc
      * @param string|null $header File header
      * @param string|null $footer File footer
@@ -66,12 +72,30 @@ class FileStream extends BaseFileStream
     }
 
     /**
+     * Adds the given Filename to the internal Array
+     * @param $filename
+     */
+    protected function addFile($filename)
+    {
+        $this->files[] = $filename;
+    }
+
+    /**
+     * Returns the List of written Files
+     * @return array
+     */
+    public function getFileList()
+    {
+        return $this->files;
+    }
+
+    /**
      * @inheritdoc
      */
     protected function openHandle()
     {
         parent::openHandle();
-
+        $this->addFile($this->getFileName());
         if ($this->header !== null) {
             $this->write($this->header, false);
         }

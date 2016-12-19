@@ -81,4 +81,33 @@ class FileStreamTest extends \PHPUnit_Framework_TestCase
             3
         );
     }
+
+
+    public function testFilestreamGathersListOfFilenames()
+    {
+        $stream = $this->prepareStreamToGenerateAmountOfFiles(3);
+
+        $this->assertCount(3, $stream->getFileList());
+    }
+
+    /**
+     * @param $amount
+     * @return FileStream
+     */
+    private function prepareStreamToGenerateAmountOfFiles($amount)
+    {
+        $stream = new FileStream(
+            $this->runtimeDir . '/sitemap{count}.xml',
+            '<urlset>',
+            '</urlset>',
+            $amount
+        );
+
+        foreach ($urls = range(0, $amount * $amount - $amount) as $url) {
+            $stream->write(
+                '<url><loc>https://github.com?page' . $url . '</loc></url>' . PHP_EOL
+            );
+        }
+        return $stream;
+    }
 }
